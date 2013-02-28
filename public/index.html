@@ -1,241 +1,585 @@
-<!DOCTYPE html>
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+<!--    -->
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">-->
 <html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml"> -->
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
-    <style type="text/css" media="screen">
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
-
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
-
-
-      #page {
-        background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
-      }
-
-      #sidebar {
-        float: right;
-        width: 175px;
-      }
-
-      #footer {
-        clear: both;
-      }
-
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
-      }
-
-
-      #header {
-        background-image: url("assets/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
-
-
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-
-      #about-content ul {
-        padding: 0;
-        list-style-type: none;
-      }
-
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-
-
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-
-
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
-
-      .filename {
-        font-style: italic;
-      }
-    </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Hedgeye Dashboard: Products
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
+      google.load('visualization', '1', {packages: ['corechart']});
     </script>
+    <script type="text/javascript">
+      function drawVisualization(){
+        // Create and populate the data tables.
+		
+        var dataProdtotal = google.visualization.arrayToDataTable([
+      ['x', 'Morning Newsletter', 'Real-Time Alerts', 'Weekly Hot Ideas', 'Hedgeye Investor', 'Hedgeye Risk Manager'],
+      ['12/3',  269, 414, 77, 84, 145],
+      ['12/10', 270, 412, 78, 84, 142],
+      ['12/17', 263, 413, 77, 82, 143],
+      ['12/24', 264, 414, 76, 81, 143],
+      ['12/31', 266, 439, 77, 81, 144],
+      ['1/7', 263, 441, 77, 80, 146],
+      ['1/14', 260, 476, 82, 80, 147],
+      ['1/21', 260, 495, 81, 79, 148],
+      ['1/28', 269, 530, 83, 78, 149],
+      ['2/4', 270, 548, 86, 77, 148],
+      ['2/11', 266, 541, 85, 77, 150],
+      ['2/18', 273, 555, 90, 77, 149],
+        ]);		
+		
+		
+        var dataNewtotal = google.visualization.arrayToDataTable([
+      ['x', 'New Products'],
+      ['12/3', 19 ],
+      ['12/10', 25 ],
+      ['12/17', 17 ],
+      ['12/24', 10],
+      ['12/31', 31],
+      ['1/7', 32 ],
+      ['1/14', 49 ],
+      ['1/21', 29 ],
+      ['1/28', 54],
+      ['2/4', 31 ],
+      ['2/11', 15 ],
+      ['2/18', 30 ],
+        ]);
+      
+	  var dataNetnew = google.visualization.arrayToDataTable([
+      ['x', 'New New'],
+      ['Morning Newsletter', 7 ],
+      ['Real-Time Alerts', 14 ],
+      ['Hot Ideas', 5 ],
+      ['Investor', 0],
+      ['Risk Manager', -1],
+      ['Retail Pro', 0 ],
+        ]);
+        
+        
+        // Create and draw the visualization.
+		
+		 new google.visualization.LineChart(document.getElementById('chartProdtotal')).
+            draw(dataProdtotal, {curveType: "none",
+                        legend:{position: 'none'},
+                        fontSize: 12,
+                        fontName: '"Trebuchet MS", Helvetica, sans-serif',
+                        backgroundColor: '#DCE6F2',
+                        width: 400, height: 200,
+                        lineWidth: 4,
+                        pointSize: 0,
+                        vAxis: {maxValue: 50},
+                        vAxis: {baselineColor: 'black'},
+                        hAxis: {gridlines: {count:2}},
+                        hAxis: {baselineColor: 'black'},
+                        titleTextStyle: {color: 'blue', fontName: '"Trebuchet MS", Helvetica, sans-serif', fontSize: 18},
+                        title: 'Products Past 12 Weeks'
+                       }
+                );
+		
+        new google.visualization.LineChart(document.getElementById('chartNewtotal')).
+            draw(dataNewtotal, {curveType: "none",
+                        legend:{position: 'none'},
+                        fontSize: 12,
+                        fontName: '"Trebuchet MS", Helvetica, sans-serif',
+                        backgroundColor: '#DCE6F2',
+                        width: 400, height: 200,
+                        lineWidth: 4,
+                        pointSize: 0,
+                        vAxis: {maxValue: 50},
+                        vAxis: {baselineColor: 'black'},
+                        hAxis: {gridlines: {count:2}},
+                        hAxis: {baselineColor: 'black'},
+                        titleTextStyle: {color: 'blue', fontName: '"Trebuchet MS", Helvetica, sans-serif', fontSize: 18},
+                        title: 'New Products Past 12 Weeks'
+                       }
+                );
+				
+				        new google.visualization.BarChart(document.getElementById('chartNetnew')).
+            draw(dataNetnew, {curveType: "none",
+                        legend:{position: 'none'},
+                        fontSize: 12,
+                        fontName: '"Trebuchet MS", Helvetica, sans-serif',
+                        backgroundColor: '#DCE6F2',
+                        width: 400, height: 200,
+                        lineWidth: 4,
+                        pointSize: 0,
+                        vAxis: {maxValue: 50},
+                        vAxis: {baselineColor: 'black'},
+                        hAxis: {gridlines: {count:2}},
+                        hAxis: {baselineColor: 'black'},
+                        titleTextStyle: {color: 'blue', fontName: '"Trebuchet MS", Helvetica, sans-serif', fontSize: 18},
+                        title: 'Net New Products This Week'
+                       }
+                );
+				
+      }
+
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+	
+	<style>
+	
+	td
+	{
+	vertical-align:top; border-top:1px solid ;border-right:1px solid; border-left:1px solid; border-bottom:1px solid ;text-align:center;background-color:#DCE6F2;
+	font-family: Arial; font-weight:bold; padding:3px 7px 2px 7px;
+	}
+	th
+	{
+	vertical-align:top; border-top:1px solid ;border-right:1px solid; border-left:1px solid; border-bottom:1px solid ;text-align:center;background-color:#B8CCE4; padding:3px 7px 2px 7px;
+	}
+	</style>
+	
   </head>
-  <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://guides.rubyonrails.org/">Rails Guides</a></li>
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://www.ruby-doc.org/core/">Ruby core</a></li>
-              <li><a href="http://www.ruby-doc.org/stdlib/">Ruby standard library</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  
+  <body style="font-family: Arial;border: 0 none;">
 
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
-        </div>
+  <p><span style="font-size: 30px;"><b>Hedgeye Dashboard</b></span> (Dashboard only works in Firefox, Chrome, Safari or IOS)</p>
+  <table>
+  <td style="background-color: #90EE90 ;">Products</td><td style="background-color: #C0C0C0 ;" >Site</td><td style="background-color: #C0C0C0 ;">Social</td><td style="background-color: #C0C0C0 ;">Email</td>
+  </table>
+  <br/>
+  
+  
+  <!-- PRODUCT TOTALS   -->
+  <table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Product Totals</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		<td style = "border-top:0px solid ;border-right:0px solid; border-left:0px solid; border-bottom:0px solid ;background-color: #ffffff ;""></td>
+		<td rowspan="8" style="font-weight:normal;"><div id="chartProdtotal" ></div></td>
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL PRODUCTS</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
+ <!-- NET NEW PRODUCTS   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Net New Products</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		<td style = "border-top:0px solid ;border-right:0px solid; border-left:0px solid; border-bottom:0px solid ;background-color: #ffffff ;""></td>
+		<td rowspan="8" style="font-weight:normal;"><div id="chartNetnew" ></div></td>
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL NET NEW</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
+ <!-- NEW PRODUCTS   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>New Products</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		<td style = "border-top:0px solid ;border-right:0px solid; border-left:0px solid; border-bottom:0px solid ;background-color: #ffffff ;""></td>
+		<td rowspan="8" style="font-weight:normal;"><div id="chartNewtotal" ></div></td>
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL NEW</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-          <ol>
-            <li>
-              <h2>Use <code>rails generate</code> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
+<!-- Active Promotions   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Promotions</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-            <li>
-              <h2>Set up a default route and remove <span class="filename">public/index.html</span></h2>
-              <p>Routes are set up in <span class="filename">config/routes.rb</span>.</p>
-            </li>
+<!-- Promotion Convertions   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Promo Conversions</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-            <li>
-              <h2>Create your database</h2>
-              <p>Run <code>rake db:create</code> to create your database. If you're not using SQLite (the default), edit <span class="filename">config/database.yml</span> with your username and password.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
+<!-- Active Trials   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Trials</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
 
-      <div id="footer">&nbsp;</div>
-    </div>
+<!-- Trial Convertions   -->
+<table style="border-collapse:collapse;">
+	<tr style="vertical-align:top; background-color: #B8CCE4; ">
+		<th style="text-align:left;"><b>Trial Conversions</b></th>
+		<th><b>Week 1</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Week 2</b></th>
+		<th><b>Change</b></th>
+		
+	<tr>
+		<td style="text-align:left; "><b>Morning Newsletter</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Real-Time Alerts</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Weekly Hot Ideas</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Investor</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Hedgeye Risk Manager</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td style="text-align:left;"><b>Retail Pro</b></td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+		<tr>
+		<th style="text-align:left;"><b>TOTAL</b></th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+	</tr>
+</table>
+<br/>
+
+
+
+
   </body>
 </html>
